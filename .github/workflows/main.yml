@@ -1,11 +1,10 @@
-
 name: Build FF STORE APK
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,15 +22,12 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.7'
 
       - name: Build Debug APK
-        run: gradle -p android assembleDebug
+        run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: FF-STORE-APK
-          path: android/app/build/outputs/apk/debug/*.apk
-          
+          path: app/build/outputs/apk/debug/*.apk
