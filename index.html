@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071b36"><link rel="manifest" href="/manifest.json"><title>FF STORE</title><link rel="stylesheet" href="/style.css"></head>
+<body><header><div class="brandmark">FF</div><div><b>FF STORE</b><small>Customer App</small></div><span class="pill">OFFICIAL</span></header>
+<main>
+<section class="hero"><p>FREE FIRE • LIKES • WALLET</p><h1>Welcome to<br><em>FF STORE</em></h1><div>Buy Like Plans, manage orders and recharge your wallet.</div></section>
+<section id="login" class="panel"><h2>Login with Telegram</h2><p>Telegram में <b>@FFStoreLikeBot</b> खोलकर <code>/appcode</code> भेजें। Bot आपको एक one-time code देगा।</p><label>Telegram Login Code</label><input id="otp" inputmode="numeric" maxlength="6" placeholder="6 digit code"><button id="loginBtn">Secure Login</button><small id="loginMsg"></small></section>
+<div id="app" hidden>
+<section class="wallet panel"><div><small>AVAILABLE WALLET</small><h2 id="balance">₹0</h2><small id="walletMeta">Wallet connected</small></div><button id="topupOpen" class="secondary">+ Add Money</button></section>
+<section class="panel"><div class="sectionhead"><h2>Buy Likes</h2><span class="pill">6 PLANS</span></div><div id="plans" class="plans">Loading plans…</div></section>
+<section class="panel"><h2>My Orders</h2><div id="orders">No orders yet.</div></section>
+<section class="panel"><h2>Wallet Recharge</h2><div id="topupBox" hidden><label>Amount (₹30–₹50,000)</label><input id="topupAmount" type="number" min="30" max="50000" value="50"><button id="topupCreate">Create QR Request</button><div id="topupPay"></div></div><p id="topupHint">Add money using PhonePe QR. Admin verifies your payment manually before credit.</p></section>
+<section id="admin" class="panel" hidden><h2>Admin Dashboard</h2><div id="adminData"></div></section>
+<button id="logout" class="logout">Logout</button></div>
+<div id="buyModal" class="modal" hidden aria-hidden="true">
+  <div class="modal-backdrop" data-close="1"></div>
+  <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="buyTitle">
+    <div class="modal-head"><div><span class="eyebrow">FF STORE • ORDER DETAILS</span><h2 id="buyTitle">Complete your order</h2><p id="selectedPlanLabel">Selected plan</p></div><button type="button" class="icon-close" id="closeBuy" aria-label="Close">×</button></div>
+    <form id="buyForm">
+      <label for="buyRegion">Server Region</label>
+      <div class="select-wrap"><select id="buyRegion" required><option value="IND">🇮🇳 India (IND)</option><option value="BD">🇧🇩 Bangladesh (BD)</option><option value="EU">🇪🇺 Europe (EU)</option><option value="ID">🇮🇩 Indonesia (ID)</option><option value="RU">🇷🇺 Russia (RU)</option><option value="SG">🇸🇬 Singapore (SG)</option><option value="ME">🌍 Middle East (ME)</option><option value="PK">🇵🇰 Pakistan (PK)</option><option value="VN">🇻🇳 Vietnam (VN)</option></select></div>
+      <label for="buyUid">Free Fire UID</label><input id="buyUid" inputmode="numeric" maxlength="12" pattern="[0-9]{8,12}" placeholder="Enter 8–12 digit UID" required>
+      <label for="buyMobile">Mobile Number</label><input id="buyMobile" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit mobile number" required>
+      <label>Payment Method</label><div class="payment-options"><label class="payment-option"><input type="radio" name="paymentMethod" value="wallet" checked><span><b>Wallet</b><small>Pay from available balance</small></span></label><label class="payment-option"><input type="radio" name="paymentMethod" value="qr"><span><b>PhonePe QR</b><small>Pay by UPI and submit screenshot</small></span></label></div>
+      <p class="form-error" id="buyError" role="alert"></p><button class="submit-order" type="submit" id="submitBuy">Continue to Payment</button>
+    </form>
+  </section>
+</div>
+<footer>FF STORE • Payments are manually verified. Never share your OTP.</footer></main><script src="/app.js"></script></body></html>

@@ -1,0 +1,9 @@
+{
+  "name": "FF STORE Customer App",
+  "short_name": "FF STORE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f7ff",
+  "theme_color": "#1257d6",
+  "icons": []
+}
